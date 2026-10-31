@@ -161,12 +161,9 @@ cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
 ## 7. Findings, limitations and next steps
 
 **Findings**
-- **The DWT branch had no measurable effect.** Zeroing its contribution at
-  inference produced identical generated text in 15/15 held-out samples, and
-  gradient analysis showed its contribution to the loss was negligible.
-  Matching its feature scale to the backbone's tokens did not change its
-  gradient. The root cause was not conclusively established.
-- **Generic outputs.** The student often returns short generic labels (for
+- **The DWT branch had Less measurable effect.** While carrying out the
+  gradient analysis it showed its contribution to the loss was less.
+- **Generic outputs.** The student sometimes returns short generic labels (for
   example a single organ name) where the teacher's labels are more specific.
 - **Loss plateau.** Loss stopped improving early, which is consistent with the
   two points above.
@@ -175,7 +172,7 @@ cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
 - Single dataset, single procedure type, one teacher.
 - Labels come from a model, not from clinicians, so the student inherits the
   teacher's errors.
-- No latency benchmark and no clinical evaluation.
+- No latency benchmark(under study) and no clinical evaluation.
 
 **Next steps**
 - Give the high-frequency branch its own attention projections and/or an
@@ -183,7 +180,7 @@ cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
   re-run the ablation.
 - Evaluate with a task-appropriate metric (for example category-level match
   against a surgical vocabulary) alongside embedding similarity.
-- Benchmark inference latency before making any speed claims.
+- Benchmark inference latency.
 
 ## 8. Engineering notes
 
@@ -198,7 +195,7 @@ cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
   during sustained service errors.
 - **Debugging that mattered:**
   - Reentrant gradient checkpointing silently zeroed gradients to the custom
-    modules while LoRA kept training, which looks exactly like a loss plateau.
+    modules while LoRA kept training, which looked exactly like a loss plateau.
   - Optimizer state cannot be loaded across optimizer types; doing so failed
     only later, as a cryptic key error on every step.
   - Automatic multi-GPU placement split model layers across devices and
