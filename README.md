@@ -152,7 +152,7 @@ cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
 | ZwZ model  | 0.74 |
 
 |Model |Latency measure(ms)|p95|GPU Memory(GB)
-|---|---|
+|---|---|---|---|
 | Base Qwen2-VL-2B-Instruct | 1140 |1420|3.1|
 |ZwZ |1229|1490|3.4 GB|
 | Crop-Then -Zoom |under study|under study|under study|
