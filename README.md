@@ -37,9 +37,7 @@ questions about them, using a much larger model as the source of supervision?
 
 **Scope.** The project builds and trains this pipeline end to end on a public
 dataset and evaluates the student against the teacher's labels. It does not
-include clinical validation, and it does not report inference-latency
-measurements.
-
+include clinical validation.
 ## 2. Approach at a glance
 
 ![ZwZ pipeline](docs/pipeline.png)
@@ -139,8 +137,7 @@ Training ran across many free-tier GPU sessions. Checkpoints were written
 periodically and mirrored to Hugging Face Hub, with automatic resume, so an
 interrupted session cost at most a few hundred steps.
 
-Training and validation loss tracked each other closely (no overfitting) and
-plateaued early, at around 6.3.
+
 
 ## 6. Evaluation
 
