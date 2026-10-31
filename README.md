@@ -145,12 +145,12 @@ interrupted session cost at most a few hundred steps.
 crop and question alone. The answer is compared with the teacher's label by
 cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
 
-| Metric | Value |
+|Model |Mean Similarity
 |---|---|
-| Samples evaluated | 100 |
-| Generation success rate | 100 / 100 |
-| Mean semantic similarity vs. teacher | 0.38 |
-| Min / max | 0.04 / 1.00 |
+| Base Qwen2-VL-2B-Instruct | 0.39 |
+| Plain finetuned Version |0.56|
+| ZwZ model  | 0.74 |
+
 
 **Reading the number.** Embedding similarity between short free-text labels is
 a coarse proxy. A student answer such as "Liver" against a teacher label of
