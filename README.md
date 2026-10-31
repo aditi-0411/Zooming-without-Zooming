@@ -145,7 +145,7 @@ interrupted session cost at most a few hundred steps.
 crop and question alone. The answer is compared with the teacher's label by
 cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
 
-|Model |Mean Similarity|
+|Model |Mean Similarity(with gemini answer)|
 |---|---|
 | Base Qwen2-VL-2B-Instruct | 0.49 |
 | Plain finetuned Version |0.56|
@@ -154,7 +154,7 @@ cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
 |Model |Latency measure(ms)|p95|GPU Memory(GB)
 |---|---|---|---|
 | Base Qwen2-VL-2B-Instruct | 1140 |1420|3.1|
-|ZwZ |1229|1490|3.4 GB|
+|ZwZ |1229|1490|3.4 |
 | Crop-Then -Zoom |under study|under study|under study|
 
 (till now under trials we have found that ~2000ms is for crop and zoom version but still under study in our experiments)
