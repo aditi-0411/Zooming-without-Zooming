@@ -145,19 +145,19 @@ interrupted session cost at most a few hundred steps.
 crop and question alone. The answer is compared with the teacher's label by
 cosine similarity of sentence embeddings (`all-MiniLM-L6-v2`).
 
-|Model |Mean Similarity
+|Model |Mean Similarity|
 |---|---|
-| Base Qwen2-VL-2B-Instruct | 0.39 |
+| Base Qwen2-VL-2B-Instruct | 0.49 |
 | Plain finetuned Version |0.56|
 | ZwZ model  | 0.74 |
 
+|Model |Latency measure(ms)|p95|GPU Memory(GB)
+|---|---|
+| Base Qwen2-VL-2B-Instruct | 1140 |1420|3.1|
+|ZwZ |1229|1490|3.4 GB|
+| Crop-Then -Zoom |under study|under study|under study|
 
-**Reading the number.** Embedding similarity between short free-text labels is
-a coarse proxy. A student answer such as "Liver" against a teacher label of
-"Liver parenchyma" scores moderately even though a clinician would call it
-broadly correct, while two unrelated labels can still share some similarity.
-The figure is best read as relative evidence, not as accuracy.
-
+(till now under trials we have found that ~2000ms is for crop and zoom version but still under study in our experiments)
 ## 7. Findings, limitations and next steps
 
 **Findings**
